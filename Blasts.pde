@@ -2,6 +2,14 @@ class Blast {
   float blastX = 240; 
   float blastY = 250;
   float speed = 7;
+  Blast(float newBlastX, float newBlastY)
+  {
+    blastX = newBlastX;
+    blastY = newBlastY;
+  }
+  Blast()
+  {
+  }
   
   void display() {
     stroke(#0CF77C);

@@ -1,8 +1,8 @@
-int playerX = 180; 
-int playerY = 280; 
+float playerX = 180; 
+float playerY = 280; 
 int playerWidth;
 ArrayList<Blast> blasts = new ArrayList<Blast>();
-Blast b1 = new Blast();
+
 
 // Setup the project
 void setup() {
@@ -19,7 +19,7 @@ void draw() {
   drawPlayer();
   handlePlayer();
   handleBlasts();
-  b1.display();
+  
 
 }
 
@@ -84,5 +84,10 @@ void handleBlasts() {
   }
 }  
 
+void keyPressed() {
+  if(key == ' ') {
+    blasts.add(new Blast(playerX + 60, playerY - 20));
+  }
+}
 
   
