@@ -1,6 +1,7 @@
 int playerX = 180; 
 int playerY = 280; 
 int playerWidth;
+ArrayList<Blast> blasts = new ArrayList<Blast>();
 Blast b1 = new Blast();
 
 // Setup the project
@@ -17,6 +18,7 @@ void draw() {
   rect(0, 376, 400, 400);
   drawPlayer();
   handlePlayer();
+  handleBlasts();
   b1.display();
 
 }
@@ -67,9 +69,20 @@ void drawPlayer()  {
 
   // Constrain player to screen
   playerX = constrain(playerX, 0, width - playerWidth);
-}
-
   
+}
+  
+void handleBlasts() {
+  for (int i = blasts.size() - 1; i >= 0; i--) {
+    Blast b = blasts.get(i);
+    b.update();
+    b.display();
+    
+    if (b.blastY < 0) {
+      blasts.remove(i);
+    }
+  }
+}  
 
 
   

@@ -1,24 +1,36 @@
 class Blast {
+  float blastX = 240; 
+  float blastY = 250;
+  float speed = 7;
+  
   void display() {
     stroke(#0CF77C);
     fill(#BF95FA);
-    triangle(235, 258, 233, 257, 237, 256);
-    triangle(240, 255, 230, 248, 232, 251);
-    triangle(242, 251, 241, 248, 242, 247);
-    triangle(242, 255, 248, 251, 248, 253);
-    quad(240, 252, 235, 242, 239, 237, 238, 242);
-    quad(239, 237, 248, 224, 239, 214, 244, 224);
-    quad(239, 214, 234, 209, 241, 199, 231, 209);
-    quad(241, 199, 243, 190, 250, 196, 241, 183);
-    triangle(241, 183, 241, 187, 233, 191);
-    stroke(#BF95FA);
-    fill(#0CF77C);
-    triangle(238, 255, 234, 254, 228, 255);
-    triangle(240, 256, 238, 258, 238, 261);
-    triangle(243, 256, 247, 257, 248, 259);
-    quad(240, 247, 242, 239, 237, 230, 240, 239);
-    quad(237, 230, 235, 219, 244, 208, 231, 219);
-    quad(244, 208, 235, 199, 243, 199, 230, 197);
-    quad(243, 199, 239, 189, 235, 192, 239, 191); 
-  }
+
+
+triangle(blastX - 5, blastY + 8, blastX - 7, blastY + 7, blastX - 3, blastY + 6);
+triangle(blastX, blastY + 5, blastX - 10, blastY - 2, blastX - 8, blastY + 1);
+triangle(blastX + 2, blastY + 1, blastX + 1, blastY - 2, blastX + 2, blastY - 3);
+triangle(blastX + 2, blastY + 5, blastX + 8, blastY + 1, blastX + 8, blastY + 3);
+quad(blastX, blastY + 2, blastX - 5, blastY - 8, blastX - 1, blastY - 13, blastX - 2, blastY - 8);
+quad(blastX - 1, blastY - 13, blastX + 8, blastY - 26, blastX - 1, blastY - 36, blastX + 4, blastY - 26);
+quad(blastX - 1, blastY - 36, blastX - 6, blastY - 41, blastX + 1, blastY - 51, blastX - 9, blastY - 41);
+quad(blastX + 1, blastY - 51, blastX + 3, blastY - 60, blastX + 10, blastY - 54, blastX + 1, blastY - 67);
+triangle(blastX + 1, blastY - 67, blastX + 1, blastY - 63, blastX - 7, blastY - 59);
+
+stroke(#BF95FA);
+fill(#0CF77C);
+
+triangle(blastX - 2, blastY + 5, blastX - 6, blastY + 4, blastX - 12, blastY + 5);
+triangle(blastX, blastY + 6, blastX - 2, blastY + 8, blastX - 2, blastY + 11);
+triangle(blastX + 3, blastY + 6, blastX + 7, blastY + 7, blastX + 8, blastY + 9);
+quad(blastX, blastY - 3, blastX + 2, blastY - 11, blastX - 3, blastY - 20, blastX, blastY - 11);
+quad(blastX - 3, blastY - 20, blastX - 5, blastY - 31, blastX + 4, blastY - 42, blastX - 9, blastY - 31);
+quad(blastX + 4, blastY - 42, blastX - 5, blastY - 51, blastX + 3, blastY - 51, blastX - 10, blastY - 53);
+quad(blastX + 3, blastY - 51, blastX - 1, blastY - 61, blastX - 5, blastY - 58, blastX - 1, blastY - 59);
+
+ }
+   void update() {
+     blastY = blastY - speed;
+   }
 }
