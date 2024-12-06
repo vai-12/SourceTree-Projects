@@ -1,6 +1,7 @@
 int playerX = 180; 
 int playerY = 280; 
 int playerWidth;
+Blast b1 = new Blast();
 
 // Setup the project
 void setup() {
@@ -9,17 +10,22 @@ void setup() {
 
 // Draw the background and the ground 
 void draw() {
+  stroke(0);
   background(#6D69A7);
   rectMode(CORNER);
   fill(#AD8A75);
   rect(0, 376, 400, 400);
   drawPlayer();
   handlePlayer();
+  b1.display();
+
 }
+
   
 void drawPlayer()  {
    // Draw the Demon, start by creating the horns on the head
   fill(#CAC5CB);
+  stroke(0);
   triangle(playerX - 12, playerY - 16, playerX - 24, playerY - 28, playerX - 16, playerY - 12);
   triangle(playerX + 12, playerY - 16, playerX + 23, playerY - 29, playerX + 16, playerY - 12);
 
@@ -63,6 +69,7 @@ void drawPlayer()  {
   playerX = constrain(playerX, 0, width - playerWidth);
 }
 
+  
 
 
   
