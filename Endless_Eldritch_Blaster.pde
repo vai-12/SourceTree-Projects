@@ -1,18 +1,24 @@
 int playerX = 180; 
 int playerY = 280; 
+int playerWidth;
 
 // Setup the project
 void setup() {
   size(400, 400);
 }
+
 // Draw the background and the ground 
 void draw() {
   background(#6D69A7);
   rectMode(CORNER);
   fill(#AD8A75);
   rect(0, 376, 400, 400);
+  drawPlayer();
+  handlePlayer();
+}
   
-  // Draw the Demon, start by creating the horns on the head
+void drawPlayer()  {
+   // Draw the Demon, start by creating the horns on the head
   fill(#CAC5CB);
   triangle(playerX - 12, playerY - 16, playerX - 24, playerY - 28, playerX - 16, playerY - 12);
   triangle(playerX + 12, playerY - 16, playerX + 23, playerY - 29, playerX + 16, playerY - 12);
@@ -45,6 +51,18 @@ void draw() {
   quad(playerX - 25, playerY + 90, playerX - 30, playerY + 96, playerX - 19, playerY + 96, playerX - 20, playerY + 90);
   quad(playerX + 18, playerY + 90, playerX + 17, playerY + 96, playerX + 29, playerY + 96, playerX + 23, playerY + 90);
 }
+ 
+ void handlePlayer() {
+ // Player movement
+  if (keyPressed) {
+    if (key == 'a' || key == 'A') playerX -= 5;
+    if (key == 'd' || key == 'D') playerX += 5;
+  }
+
+  // Constrain player to screen
+  playerX = constrain(playerX, 0, width - playerWidth);
+}
+
 
 
   
