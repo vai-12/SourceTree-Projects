@@ -42,4 +42,13 @@ class Enemy {
         return true;
      }
   }
+  boolean isCollidingWithBlast(float blastPositionX, float blastPositionY) {
+    float distanceFromBlast = dist(blastPositionX, blastPositionY, enemyX, enemyY);
+    if(distanceFromBlast >= 65) {
+      return false;
+    }
+      else {
+        return true;
+    }
+  }
 }

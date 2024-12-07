@@ -137,16 +137,29 @@ void handleEnemies() {
   if(frameCount % enemySpawnRate == 0) {
     enemies.add(new Enemy(random(width), -20));
   }
-
 // Update and display enemies
   for(int i = enemies.size() - 1; i >= 0; i--) {
     Enemy e = enemies.get(i);
     e.update();
     e.display();
     e.isCollidingWithPlayer(playerX, playerY);
-    
+// Increase speed of Vile Souls' assualt after attaining '5' arcane power    
+    if(arcanePower >= 5) {
+      e.speed = 8;
+  }
     if(e.isCollidingWithPlayer(playerX, playerY) == true) {
       isPlayerAlive = false;
-    }  
   }
+    
+    for(int j = blasts.size() - 1; j >= 0; j--) {
+      Blast b = blasts.get(j);
+      e.isCollidingWithBlast(b.blastX, b.blastY);
+      
+      if(e.isCollidingWithBlast(b.blastX, b.blastY) == true) {
+        blasts.remove(j);
+        enemies.remove(i);
+        arcanePower++;
+   }
+  } 
+ }
 }
