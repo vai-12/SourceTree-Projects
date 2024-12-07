@@ -33,4 +33,13 @@ class Enemy {
   void update() {
     enemyY = enemyY + speed;
   }
+  boolean isCollidingWithPlayer(float playerPositionX, float playerPositionY) {
+    float distanceFromPlayer = dist(playerPositionX, playerPositionY, enemyX, enemyY);
+    if(distanceFromPlayer >= 65) {
+      return false;
+    }
+      else {
+        return true;
+     }
+  }
 }

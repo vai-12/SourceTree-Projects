@@ -4,7 +4,7 @@ int playerWidth;
 ArrayList<Blast> blasts = new ArrayList<Blast>();
 ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 int enemySpawnRate = 60;
-
+boolean isPlayerAlive = true;
 
 // Setup the project
 void setup() {
@@ -13,16 +13,21 @@ void setup() {
 
 // Draw the background and the ground 
 void draw() {
-  stroke(0);
-  background(#6D69A7);
-  rectMode(CORNER);
-  fill(#AD8A75);
-  rect(0, 376, 400, 400);
-  drawPlayer();
-  handlePlayer();
-  handleBlasts();
-  handleEnemies();
 
+  if(isPlayerAlive == false) {
+    background(0);
+  }
+    else {
+      stroke(0);
+      background(#6D69A7);
+      rectMode(CORNER);
+      fill(#AD8A75);
+      rect(0, 376, 400, 400);
+      drawPlayer();
+      handlePlayer();
+      handleBlasts();
+      handleEnemies();
+  }
 }
 
   
@@ -103,5 +108,10 @@ void handleEnemies() {
     Enemy e = enemies.get(i);
     e.update();
     e.display();
+    e.isCollidingWithPlayer(playerX, playerY);
+    
+    if(e.isCollidingWithPlayer(playerX, playerY) == true) {
+      isPlayerAlive = false;
+    }  
   }
 }
