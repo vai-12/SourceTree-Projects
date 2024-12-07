@@ -30,6 +30,7 @@ void draw() {
       handlePlayer();
       handleBlasts();
       handleEnemies();
+      displayArcanePower();
   }
 }
 
@@ -96,7 +97,8 @@ void handleBlasts() {
 void displayArcanePower() {
   fill(#0AC5F2);
   textSize(20);
-  text("Arcane Power" + arcanePower, 10, 20);
+  textAlign(CORNER, CORNER);
+  text("Arcane Power:" + arcanePower, 10, 20);
 }
 
 void displayGameOver() {
