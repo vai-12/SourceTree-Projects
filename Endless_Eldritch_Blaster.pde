@@ -2,6 +2,7 @@ float playerX = 180;
 float playerY = 280; 
 int playerWidth;
 ArrayList<Blast> blasts = new ArrayList<Blast>();
+Enemy e1 = new Enemy();
 
 
 // Setup the project
@@ -19,7 +20,7 @@ void draw() {
   drawPlayer();
   handlePlayer();
   handleBlasts();
-  
+  e1.display();
 
 }
 
