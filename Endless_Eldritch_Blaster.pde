@@ -5,6 +5,8 @@ ArrayList<Blast> blasts = new ArrayList<Blast>();
 ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 int enemySpawnRate = 60;
 boolean isPlayerAlive = true;
+int arcanePower = 0;
+
 
 // Setup the project
 void setup() {
@@ -16,6 +18,7 @@ void draw() {
 
   if(isPlayerAlive == false) {
     background(0);
+    displayGameOver();
   }
     else {
       stroke(0);
@@ -90,10 +93,40 @@ void handleBlasts() {
     }
   }
 }  
+void displayArcanePower() {
+  fill(#0AC5F2);
+  textSize(20);
+  text("Arcane Power" + arcanePower, 10, 20);
+}
 
+void displayGameOver() {
+  background(0);
+  fill(#F20A12);
+  textSize(25);
+  textAlign(CENTER, CENTER);
+  text("The Vile Souls have won...", width/ 2, height/ 2);
+  textSize(18);
+  text("Arcane Power Absorbed:" + arcanePower, width/ 2, height/ 2 + 50);
+  text("...Or are you just getting started? Press 'R' to retry", width/ 2, height/ 2 + 100);
+}
+  
 void keyPressed() {
   if(key == ' ') {
     blasts.add(new Blast(playerX + 60, playerY - 20));
+  }
+//Key to press in order to restart the game without closing the program
+  if(key == 'r' || key == 'R') {
+    resetGame();
+  }
+}
+
+void resetGame() {
+
+  if(isPlayerAlive == false) {
+    isPlayerAlive = true;
+    arcanePower = 0;
+    enemies.clear();
+    blasts.clear();
   }
 }
 
