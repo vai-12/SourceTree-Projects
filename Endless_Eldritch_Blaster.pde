@@ -2,7 +2,8 @@ float playerX = 180;
 float playerY = 280; 
 int playerWidth;
 ArrayList<Blast> blasts = new ArrayList<Blast>();
-Enemy e1 = new Enemy();
+ArrayList<Enemy> enemies = new ArrayList<Enemy>();
+int enemySpawnRate = 60;
 
 
 // Setup the project
@@ -20,7 +21,7 @@ void draw() {
   drawPlayer();
   handlePlayer();
   handleBlasts();
-  e1.display();
+  handleEnemies();
 
 }
 
@@ -91,4 +92,16 @@ void keyPressed() {
   }
 }
 
-  
+// Spawn Vile Souls into the fray
+void handleEnemies() {
+  if(frameCount % enemySpawnRate == 0) {
+    enemies.add(new Enemy(random(width), -20));
+  }
+
+// Update and display enemies
+  for(int i = enemies.size() - 1; i >= 0; i--) {
+    Enemy e = enemies.get(i);
+    e.update();
+    e.display();
+  }
+}

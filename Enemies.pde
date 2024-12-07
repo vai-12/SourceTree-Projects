@@ -2,6 +2,7 @@
 class Enemy {
   float enemyX; 
   float enemyY;
+  float speed = 4;
 
 // Constructor to initialize the enemy's position
  Enemy(float newEnemyX, float newEnemyY) {
@@ -27,5 +28,9 @@ class Enemy {
 
    triangle(enemyX - 13, enemyY, enemyX - 15, enemyY - 6, enemyX - 1, enemyY + 2);
    triangle(enemyX + 1, enemyY + 2, enemyX + 11, enemyY, enemyX + 12, enemyY - 6);
+  }
+  
+  void update() {
+    enemyY = enemyY + speed;
   }
 }
