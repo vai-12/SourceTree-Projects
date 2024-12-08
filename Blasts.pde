@@ -1,4 +1,4 @@
-// Setup Blast class
+// Class representing the "eldritch blasts" attack
 class Blast {
   // The properties for the eldritch blast's x and y position and speed going upwards
   float blastX = 240; 
